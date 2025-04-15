@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ninetrees.musicapp.mapper.PlaylistsMapper">
+    <select id="getSongsInPlaylist" resultType="com.ninetrees.musicapp.entity.Songs">
+        select *,'DEBUG_MARKER' as debug_marker
+        from music_app.songs s
+        where s.id in (select ps.song_id from music_app.playlist_songs ps where playlist_id = #{playlistId})
+    </select>
+</mapper>

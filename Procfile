@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -jar target/my_music_app-1.0-SNAPSHOT.jar
